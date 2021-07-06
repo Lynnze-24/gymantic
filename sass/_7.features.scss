@@ -1,0 +1,214 @@
+.features {
+  grid-column: container-start / container-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  height: min-content;
+
+  @include mq-s {
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(40rem, 1fr));
+  }
+  &-card {
+    width: 100%;
+    display: grid;
+    grid-gap: 2em;
+
+    padding: 2em 4em;
+    @extend %bg;
+
+    @include mq-s {
+      width: auto;
+    }
+
+    &:hover h3::before {
+      transform: scaleX(1);
+    }
+
+    &:nth-of-type(1) {
+      background-image: url(../img/features/features-1.jpg);
+    }
+    &:nth-of-type(2) {
+      background-image: url(../img/features/features-2.jpg);
+    }
+    &:nth-of-type(3) {
+      background-image: url(../img/features/features-3.jpg);
+    }
+    &:nth-of-type(4) {
+      background-image: url(../img/features/features-4.jpg);
+    }
+    &:nth-of-type(5) {
+      background-image: url(../img/features/features-5.jpg);
+    }
+    &:nth-of-type(6) {
+      background-image: url(../img/features/features-6.jpg);
+    }
+    &:nth-of-type(7) {
+      background-image: url(../img/features/features-7.jpg);
+    }
+    &:nth-of-type(8) {
+      background-image: url(../img/features/features-8.jpg);
+    }
+    &:nth-of-type(9) {
+      background-image: url(../img/features/features-9.jpg);
+    }
+
+    &_title {
+      margin-top: 2em;
+      letter-spacing: 0.2rem;
+      font-size: fs(md);
+      font-weight: fw(bold);
+      color: var(--color-quinary);
+      text-align: center;
+      height: min-content;
+      position: relative;
+      z-index: 1;
+
+      @include mq-bxl {
+        margin-top: 1rem;
+      }
+    }
+
+    &_title::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transform-origin: left;
+      background-color: var(--color-primary-m);
+      z-index: -1;
+      transform: scaleX(0);
+      transition: transform 0.5s ease-in-out;
+    }
+    &_para {
+      height: min-content;
+      padding: 0;
+      letter-spacing: 0.2rem;
+      font-size: fs(xs);
+      font-weight: fw(normal);
+      color: var(--color-quinary);
+      text-align: center;
+      background-color: var(--color-primary-m);
+      padding: 0.5em;
+    }
+
+    &_button {
+      height: min-content;
+      letter-spacing: 0.1rem;
+      outline: none;
+      width: max-content;
+      background-color: transparent;
+      border: none;
+      font-size: fs(xs);
+      font-weight: fw(thin);
+      text-transform: capitalize;
+      color: var(--color-quinary);
+      padding: 0.8em 1.2em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    &_button div:nth-of-type(2n) {
+      position: absolute;
+
+      height: 0.5rem;
+      width: 100%;
+    }
+    &_button div:nth-of-type(2n + 1) {
+      position: absolute;
+
+      height: 100%;
+      width: 0.5rem;
+    }
+
+    &_button div:nth-of-type(1) {
+      background-image: linear-gradient(
+        180deg,
+        transparent,
+        var(--color-primary)
+      );
+      right: 0;
+      bottom: 100%;
+      animation: border1 1s linear infinite;
+      animation-delay: 0.5s;
+    }
+    &_button div:nth-of-type(2) {
+      background-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-primary)
+      );
+      right: 100%;
+      top: 0;
+      animation: border2 1s linear infinite;
+      animation-delay: 0s;
+    }
+    &_button div:nth-of-type(3) {
+      background-image: linear-gradient(
+        360deg,
+        transparent,
+        var(--color-primary)
+      );
+      left: 0;
+      top: 100%;
+      animation: border3 1s linear infinite;
+      animation-delay: 0.5s;
+    }
+    &_button div:nth-of-type(4) {
+      background-image: linear-gradient(
+        270deg,
+        transparent,
+        var(--color-primary)
+      );
+      left: 100%;
+      bottom: 0;
+      animation: border4 1s linear infinite;
+      animation-delay: 0s;
+    }
+
+    &_button:hover {
+      background-color: var(--color-primary);
+      transition: background-color 1s ease-in-out;
+    }
+  }
+}
+
+// animation
+
+@keyframes border1 {
+  from {
+    bottom: 100%;
+  }
+  to {
+    bottom: -100%;
+  }
+}
+
+@keyframes border2 {
+  from {
+    right: 100%;
+  }
+  to {
+    right: -100%;
+  }
+}
+
+@keyframes border3 {
+  from {
+    top: 100%;
+  }
+  to {
+    top: -100%;
+  }
+}
+
+@keyframes border4 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -100%;
+  }
+}

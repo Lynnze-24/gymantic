@@ -1,0 +1,174 @@
+.footer {
+  grid-column: container-start / container-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  color: var(--color-quinary);
+  @extend %sec-padding;
+  @extend %bg;
+  background-image: linear-gradient(
+      var(--color-tertiary-m),
+      var(--color-tertiary-m)
+    ),
+    url(../img/footer/footer-bg.jpg);
+
+  height: max-content;
+
+  &-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 25rem);
+
+    place-content: center;
+
+    grid-gap: 10rem 4vw;
+
+    &_content {
+      list-style: none;
+      display: grid;
+      padding-right: 4vw;
+      grid-gap: 1.5rem;
+
+      border-right: 0.1rem solid var(--color-quinary);
+
+      &:last-child {
+        border-right: none;
+      }
+
+      & h3 {
+        font-size: fs(xs);
+      }
+      & a {
+        letter-spacing: initial;
+      }
+      p {
+        font-size: fs(xs);
+        font-weight: fw(light);
+      }
+
+      input {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        border-left: 0.1rem solid var(--color-quinary);
+        border-top: 0.1rem solid var(--color-quinary);
+        font-size: 1.2rem;
+        color: var(--color-quinary);
+        font-weight: fw(thin);
+        padding: 1rem;
+        width: 100%;
+
+        &:focus {
+          border-right: 0.1rem solid var(--color-quinary);
+          border-bottom: 0.1rem solid var(--color-quinary);
+        }
+      }
+      button {
+        appearance: none;
+        background-color: transparent;
+        color: var(--color-quinary);
+        border: 0.1rem solid var(--color-quinary);
+        width: 100%;
+        font-size: fs(xs);
+        padding: 1rem 0;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          background-color: var(--color-quinary);
+          color: black;
+        }
+      }
+    }
+  }
+
+  &-title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 5rem 0;
+    &_logo {
+      width: 5rem;
+      height: 5rem;
+    }
+    &_heading {
+      font-family: "Balsamiq Sans", sans-serif;
+      font-size: 2.5rem;
+      font-weight: fw(normal);
+      letter-spacing: 0.3rem;
+    }
+  }
+
+  &-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include mq-md {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    &_phone {
+      width: max-content;
+      display: flex;
+      justify-content: center;
+      font-size: fs(xs);
+      align-items: baseline;
+      & i {
+        font-size: 3rem;
+        margin-right: 1rem;
+      }
+      p {
+        font-weight: fw(light);
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+      }
+    }
+    &_social {
+      margin-top: 2rem;
+      width: max-content;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+
+      &--content {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 0.1rem solid var(--color-quinary);
+        text-align: center;
+        line-height: 5rem;
+        display: grid;
+        place-items: center;
+        margin: 0 calc(0.5rem + 0.8vw);
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+          top: 0;
+          left: 0;
+          background-color: var(--color-quinary);
+          transform: scale(0);
+          transition: transform 0.5s ease-in-out;
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
+
+        & i {
+          font-size: 3rem;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

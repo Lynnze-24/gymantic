@@ -1,0 +1,125 @@
+.showcase {
+  background: linear-gradient(var(--color-tertiary-m), var(--color-tertiary-m)),
+    url(../img/showcase/showcase-bg.jpg);
+
+  @extend %bg;
+  @extend %sec-padding;
+  grid-column: container-start / container-end;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @include mq-lg {
+    align-items: center;
+  }
+
+  &-title {
+    font-size: fs(xl);
+    font-weight: fw(normal);
+    text-transform: uppercase;
+    background: linear-gradient(
+      to bottom right,
+      var(--color-secondary),
+      var(--color-quinary)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include mq-md {
+      font-weight: fw(light);
+    }
+  }
+
+  &-para {
+    font-weight: fw(light);
+    color: var(--color-quinary);
+    font-size: fs(s);
+  }
+  &-button {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    @include mq-s {
+      flex-direction: row;
+    }
+    @include mq-lg {
+      margin-bottom: 8rem;
+    }
+
+    & a:link,
+    & a:visited {
+      width: max-content;
+      letter-spacing: 0.1rem;
+      font-size: fs(xs);
+      text-transform: uppercase;
+      font-weight: fw(light);
+      color: var(--color-quinary);
+      padding: 0.6rem 1.5rem;
+
+      border-radius: 0.3em;
+      position: relative;
+      z-index: 1;
+
+      @include mq-s {
+        padding: 0.8rem 1.8rem;
+      }
+      @include mq-lg {
+        padding: 1rem 2.4rem;
+      }
+    }
+
+    & a:link::before,
+    & a:visited::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 100%;
+      width: 100%;
+      border-radius: 0.3em;
+      background-color: var(--color-quinary);
+      transform: scale(0);
+      transition: all 0.3s ease-in-out;
+      z-index: -1;
+    }
+
+    & a:hover::before,
+    & a:active::before {
+      transform: scale(1);
+    }
+
+    & a:hover:first-child,
+    & a:active:first-child {
+      color: var(--color-secondary);
+      z-index: 1;
+    }
+
+    & a:hover:last-child,
+    & a:active:last-child {
+      color: var(--color-tertiary);
+    }
+
+    &_blue:link,
+    &_blue:visited {
+      background-color: var(--color-tertiary);
+      border: 0.2rem solid var(--color-tertiary);
+      margin-right: 2rem;
+      margin-bottom: 1rem;
+      box-sizing: padding-box;
+      @include mq-s {
+        margin-bottom: unset;
+      }
+    }
+
+    &_pink:link,
+    &_pink:visited {
+      z-index: 1;
+      background-color: var(--color-secondary);
+      border: 0.2rem solid var(--color-secondary);
+    }
+  }
+}

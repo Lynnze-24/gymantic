@@ -1,0 +1,112 @@
+.testimonials {
+  height: max-content;
+  grid-column: container-start / container-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @extend %sec-padding;
+  @extend %bg;
+  background-image: linear-gradient(
+      var(--color-tertiary-m),
+      var(--color-tertiary-m)
+    ),
+    url(../img/testimonials/testimonials-bg.jpg);
+
+  &-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    &_title {
+      color: var(--color-quinary);
+      font-size: fs(md);
+      letter-spacing: 0.2rem;
+      font-weight: fw(light);
+      margin-bottom: 2rem;
+    }
+
+    &_content {
+      visibility: collapse;
+      display: table-row;
+
+      color: var(--color-quinary);
+      font-size: fs(xs);
+      letter-spacing: 0.2rem;
+      font-weight: fw(normal);
+
+      &-cover {
+        padding: 1rem 0;
+        height: max-content;
+        border: 1px solid var((--color-quinary));
+
+        @include mq-md {
+          width: 70%;
+          max-width: 100rem;
+        }
+      }
+
+      & p {
+        margin-top: 2rem;
+        letter-spacing: 0;
+        font-weight: fw(bold);
+      }
+    }
+
+    &_images {
+      width: 80%;
+      max-width: 60rem;
+      height: 20%;
+      max-height: 30rem;
+      margin-top: 5rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &_content {
+        width: calc(7rem + 6vw);
+        height: calc(7rem + 6vw);
+        border-radius: 50%;
+        border: 0.2rem solid var(--color-quinary);
+        position: relative;
+        opacity: 0.2;
+        transition: opacity 0.5s ease-in-out;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@for $imgT from 1 through 3 {
+  .testimonials-container_images_content:nth-of-type(#{$imgT}) {
+    background-image: url(../img/testimonials/testimonial-#{$imgT}.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+// dynamic classes
+
+.active-t {
+  visibility: initial;
+  animation: test 2s;
+}
+
+.active-i {
+  opacity: 1;
+}
+
+// animation
+
+@keyframes test {
+  from {
+    opacity: 0;
+    transform: translateX(-5%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

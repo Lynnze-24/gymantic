@@ -1,0 +1,53 @@
+.scroll {
+  position: fixed;
+  border-radius: 50%;
+  bottom: 50%;
+  right: 5rem;
+  height: 4rem;
+  width: 4rem;
+  background-image: url(../img/scroll/scroll.svg);
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-color: var(--color-secondary-m);
+  background-blend-mode: lighten;
+  visibility: hidden;
+  z-index: 20;
+  transition: all 0.2s ease-in-out;
+}
+
+// dynamic
+
+.active-scroll {
+  visibility: visible;
+  bottom: 10rem;
+}
+
+.inactive-scroll {
+  visibility: hidden;
+  bottom: 50%;
+}
+
+// // animation
+
+// @keyframes top-bottom {
+//   from {
+//     opacity: 0;
+//     transform: translateY(100%);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes bottom-top {
+//   from {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+//   to {
+//     opacity: 0;
+//     transform: translateY(100%);
+//   }
+// }

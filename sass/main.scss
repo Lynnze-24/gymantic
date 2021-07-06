@@ -1,0 +1,76 @@
+@mixin mq-s {
+  @media screen and (min-width: bp(s)) {
+    @content;
+  }
+}
+
+@mixin mq-md {
+  @media screen and (min-width: bp(md)) {
+    @content;
+  }
+}
+
+@mixin mq-lg {
+  @media screen and (min-width: bp(lg)) {
+    @content;
+  }
+}
+
+@mixin mq-xl {
+  @media screen and (min-width: bp(xl)) {
+    @content;
+  }
+}
+
+@mixin mq-bxl {
+  @media screen and (min-width: bp(bxl)) {
+    @content;
+  }
+}
+
+@import "scroll";
+@import "1.reset";
+@import "2.variables";
+@import "3.utilities";
+@import "4.header";
+@import "5.showcase";
+@import "6.motto";
+@import "7.features";
+@import "8.trainers";
+@import "9.testimonials";
+@import "10.clients";
+@import "11.register";
+@import "12.footer";
+
+%bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+%sec-padding {
+  padding: 6vh 4vw;
+}
+
+%sec-heading {
+  font-size: fs(md);
+  font-weight: fw(light);
+  letter-spacing: 0.2rem;
+  color: var(--color-quinary);
+}
+
+%sec-para {
+  font-size: fs(s);
+  color: var(--color-quinary);
+  font-family: "Balsamiq Sans", cursive;
+  letter-spacing: 0.2rem;
+}
+
+%sec-h3 {
+  font-size: fs(s);
+  color: var(--color-quinary);
+}
+
+%sec-h4 {
+  color: var(--color-quinary);
+}
